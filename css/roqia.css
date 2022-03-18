@@ -1,0 +1,54 @@
+.pt-5 {
+  padding-bottom: 30px;
+}
+
+.roqia-btn {
+  display: flex;
+  width: 400px;
+  margin: auto;
+}
+
+.roqia-btn > div {
+  width: 200px;
+  background: var(--bg-color);
+  padding: 10px;
+  border-radius: 50px 0;
+  text-align: center;
+  font-size: 19px;
+  color: var(--text-color);
+  box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.roqia-btn .active {
+  background: var(--main-color);
+  color: #fff;
+}
+
+.roqia-container {
+  padding-bottom: 60px;
+}
+
+.roqia-container .container > div {
+  background: var(--bg-color);
+  padding: 0 15px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.roqia-container p {
+  font-size: 20px;
+  line-height: 2;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}

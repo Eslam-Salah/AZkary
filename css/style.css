@@ -1,0 +1,622 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #1b5e20;
+  --text-color: #333;
+  --bg-color: #fff;
+  --body-color: #ecf0f0;
+  --transition: 0.5s;
+}
+
+body {
+  font-family: -apple-system, sans-serif;
+  background-color: var(--body-color);
+  direction: rtl;
+}
+
+/* General */
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.pt-5 {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+  .pt-5 {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+}
+
+.pt-5 h3 {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 60px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.pt-5 h3::before,
+.pt-5 h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: var(--main-color);
+}
+.pt-5 h3::before {
+  bottom: -7px;
+  width: 100%;
+}
+.pt-5 h3::after {
+  bottom: -17px;
+  width: 50%;
+}
+
+/* Start Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: var(--bg-color);
+  box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+  z-index: 128;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.navbar .logo {
+  color: var(--text-color);
+  font-size: 27px;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.navbar ul {
+  position: relative;
+  display: flex;
+  column-gap: 30px;
+}
+
+.navbar ul a {
+  position: relative;
+  color: var(--text-color);
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.navbar ul a.active {
+  color: var(--main-color);
+}
+
+.navbar ul a.active::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 5px;
+  background-color: var(--main-color);
+  border-radius: 0 0 10px 10px;
+  transition: 0.5s;
+}
+
+.navbar ul a:hover,
+.navbar .logo:hover {
+  color: var(--main-color);
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    bottom: 0;
+  }
+  .navbar .container {
+    width: 95%;
+    justify-content: center;
+  }
+  .navbar .logo {
+    display: none;
+  }
+  .navbar ul {
+    width: 100%;
+    justify-content: center;
+    column-gap: 20px;
+  }
+  .navbar ul li.show {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar ul li.hide {
+    display: none;
+  }
+}
+
+/* Start Main */
+main .container {
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* Start Aside Shorts */
+aside.shorts .more,
+section.advert .social {
+  background: #fff;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 5%);
+  border-radius: 5px;
+}
+section.shorts .more {
+  position: fixed;
+  width: 211px;
+}
+aside.shorts .more ul a {
+  display: block;
+  padding: 15px;
+  color: var(--text-color);
+  font-size: 18px;
+  transition: var(--transition);
+}
+aside.shorts .more ul a i {
+  margin-left: 7px;
+}
+aside.shorts .more ul a:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+/* Start Section Home */
+section.home {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  text-align: center;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+section.home h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+section.home > div:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+section.home :is(.countdown-ramadan, .missions, .aya, .hadith, .asmaa) {
+  background-color: var(--bg-color);
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  color: var(--text-color);
+  box-shadow: 0 0 10px rgb(0 0 0 / 7%);
+}
+
+@media (max-width: 768px) {
+  section.home h2 {
+    font-size: 1.8em;
+  }
+}
+
+/* Create Countdown Ramadan */
+section.home .countdown-ramadan {
+  padding: 20px 0;
+}
+
+section.home .countdown-ramadan .title {
+  font-size: 1.7em;
+  margin-bottom: 25px;
+}
+
+.countdown-ramadan .appointment {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.countdown-ramadan .appointment .unit {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.countdown-ramadan .appointment .unit span {
+  display: block;
+  padding: 4px 15px;
+}
+
+.countdown-ramadan .appointment .times {
+  font-size: 35px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.countdown-ramadan .appointment .days {
+  border-top: 1px solid #ccc;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.countdown-ramadan .appointment .unit:hover,
+.countdown-ramadan .appointment .unit:hover .days {
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+section.home :is(.missions, .aya, .hadith, .asmaa) h3 {
+  text-align: right;
+}
+
+section.home .missions .add-mission {
+  display: flex;
+  margin: 20px 0;
+}
+section.home .missions .add-mission button {
+  border-radius: 5px 0 0 5px;
+}
+
+section.home .add-mission input {
+  width: 100%;
+  height: 42px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 0 5px 5px 0;
+  font-size: 17px;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  section.home .missions .add-mission {
+    flex-wrap: wrap;
+  }
+  section.home .missions .add-mission button {
+    width: 100%;
+  }
+}
+
+.task-content .task-box {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-content .task-box .delete {
+  padding: 7px 20px;
+  font-size: 13px;
+  border: none;
+  transition: var(--transition);
+}
+
+.missions .del-all {
+  margin-right: auto;
+  padding: 5px 15px !important;
+}
+.missions .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.missions .options .tasks-count {
+  font-size: 18px;
+}
+.missions .options .tasks-count span {
+  padding: 4px 8px;
+  background: var(--main-color);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+section.home :is(.missions, .aya, .hadith, .asmaa) p {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+section.home .asmaa p.name {
+  font-size: 25px;
+  font-weight: bold;
+}
+section.home .asmaa p.desc {
+  color: #444;
+}
+
+section.home :is(.missions, .aya, .hadith, .asmaa) button {
+  display: block;
+  padding: 6px 25px;
+  background: var(--main-color);
+  color: #fff;
+  border: 1px solid #1b5e20;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+section.home :is(.missions, .aya, .hadith, .asmaa) button:focus {
+  box-shadow: 0 0 0 0.25rem rgb(27 94 32 / 50%);
+}
+
+section.home .copy-ele {
+  display: flex;
+  align-items: center;
+}
+section.home .copy-ele .copied {
+  position: relative;
+  display: inline-block;
+  margin-right: auto;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  transition: var(--transition);
+}
+section.home .copy-ele .copied::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  transform: translate(-50%, -50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent var(--body-color) transparent transparent;
+}
+
+section.home .copy-ele .copied.active {
+  opacity: 1;
+  visibility: visible;
+  animation: popup_copied 2s ease-in-out forwards;
+}
+
+@keyframes popup_copied {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  40%,
+  80% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(25px);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+  }
+}
+
+/* Start Section Adverts */
+section.advert .social {
+  padding: 10px;
+}
+section.advert .social h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 5px 0 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+section.advert .social ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+section.advert .social ul a {
+  display: block;
+  color: var(--text-color);
+  font-size: 19px;
+  transition: var(--transition);
+}
+section.advert .social ul a:hover {
+  color: var(--main-color);
+}
+
+section.advert .social ul i {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  margin-left: 7px;
+  color: #fff;
+  border-radius: 4px;
+}
+section.advert .social ul a.face-link i {
+  background: #3c5a98;
+}
+section.advert .social ul a.twitter-link i {
+  background: #2daae4;
+}
+section.advert .social ul a.instagram-link i {
+  background: #fd575e;
+}
+section.advert .social ul a.pinterest-link i {
+  background: #e3262e;
+}
+
+@media (max-width: 992px) {
+  main .container {
+    padding-top: 20px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section.home {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  aside.shorts .more ul,
+  section.advert .social ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  section.advert .social ul li {
+    width: 100px;
+    margin-right: 10px;
+  }
+}
+
+footer {
+  text-align: center;
+  color: var(--text-color);
+  margin: 50px 0 80px;
+}
+
+footer h2 {
+  font-size: 30px;
+}
+footer p {
+  font-size: 30px;
+  font-family: cursive;
+}
+
+/* Create Msbaha */
+.popup-msbaha,
+.asmaa-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 129;
+  overflow-y: scroll;
+}
+
+.popup-msbaha.active,
+.asmaa-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-msbaha .modal,
+.asmaa-popup .asmaa-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background: var(--bg-color);
+  padding: 20px;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+  border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+  .popup-msbaha .modal,
+  .asmaa-popup .asmaa-container {
+    width: 90%;
+  }
+}
+
+.popup-msbaha .count-msbaha {
+  display: flex;
+  justify-content: space-between;
+}
+
+.count-msbaha > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.count-msbaha > div p {
+  font-size: 18px;
+}
+
+.popup-msbaha .click-msbaha {
+  width: 300px;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  margin: 50px auto 0;
+  background: url(../images/clickable.jpg) center/cover;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.popup-msbaha .click-msbaha.active {
+  animation: scale 0.3s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.popup-msbaha .restClose {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-msbaha .restClose .reset {
+  padding: 7px 25px;
+  background: transparent;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-msbaha .close-msbaha,
+.asmaa-container .close-asmaa {
+  padding: 6px 25px;
+  background: var(--main-color);
+  color: #fff;
+  border: 1px solid #1b5e20;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.popup-msbaha .restClose .reset:focus,
+.popup-msbaha .close-msbaha:focus,
+.asmaa-container .close-asmaa:focus {
+  box-shadow: 0 0 0 0.25rem rgb(27 94 32 / 50%);
+}

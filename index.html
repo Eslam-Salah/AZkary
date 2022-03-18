@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>أذكاري</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">أذكاري</a>
+        <ul>
+          <li><a href="index.html" class="active">الرئيسيه</a></li>
+          <li class="show"><a href="quran.html">القرآن الكريم</a></li>
+          <li class="hide"><a href="quran.html">القرآن</a></li>
+          <li><a href="hadiths.html">أحاديث</a></li>
+          <li class="show"><a href="azkar.html">أذكار المسلم</a></li>
+          <li class="hide"><a href="azkar.html">أذكار</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <aside class="shorts">
+          <div class="more">
+            <ul>
+              <li>
+                <a href="#" class="open-msbaha"><i class="fas fa-mosque"></i> المسبحه</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-kaaba"></i> حلقات الذكر</a>
+              </li>
+              <li>
+                <a href="roqia.html"><i class="fas fa-smile-beam"></i> الرقيه الشرعيه</a>
+              </li>
+              <li>
+                <a href="asmaa.html"><i class="fas fa-scroll"></i> أسماء الله الحسني</a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="home">
+          <h2>بسم الله الرحمن الرحيم</h2>
+          <div class="countdown-ramadan">
+            <h3 class="title">باقي علي رمضان</h3>
+            <div class="appointment">
+              <div class="unit">
+                <span class="times day">25</span>
+                <span class="days">يوم</span>
+              </div>
+              <div class="unit">
+                <span class="times hour">16</span>
+                <span class="days">ساعه</span>
+              </div>
+              <div class="unit">
+                <span class="times minute">19</span>
+                <span class="days">دقيقه</span>
+              </div>
+              <div class="unit">
+                <span class="times second">17</span>
+                <span class="days">ثانيه</span>
+              </div>
+            </div>
+          </div>
+          <div class="missions">
+            <h3>متعقب المهمات</h3>
+            <div class="add-mission">
+              <input type="text" placeholder="ادخل مهمه اليوم" />
+              <button>اضافه</button>
+            </div>
+            <div class="task-content">
+              <p class="no-tasks-message">لا يوجد مهام</p>
+            </div>
+            <div class="options">
+              <div class="tasks-count"><span>0</span> المهام</div>
+              <button class="del-all">حذف الكل</button>
+            </div>
+          </div>
+          <div class="aya">
+            <h3>ايه اليوم</h3>
+            <p id="ayaCopy">قل هو الله أحد</p>
+            <div class="copy-ele">
+              <span class="copied">📝 تم النسخ</span>
+              <button onclick="copy('ayaCopy')">نسخ</button>
+            </div>
+          </div>
+          <div class="hadith">
+            <h3>حديث اليوم</h3>
+            <p id="hadithCopy">
+              قال رسول الله صلي الله عليه وسلم : كل دعاء محجوب حتي يصلي علي النبي
+            </p>
+            <div class="copy-ele">
+              <span class="copied">📝 تم النسخ</span>
+              <button onclick="copy('hadithCopy')">نسخ</button>
+            </div>
+          </div>
+          <div class="asmaa">
+            <h3>أسماء الله الحسني</h3>
+            <p class="name">القدوس</p>
+            <p class="desc" id="asmaaCopy">
+              هو الطاهر المنزه عن العيوب والنقائض وعن كل ما تحيط به العقول
+            </p>
+            <div class="copy-ele">
+              <span class="copied">📝 تم النسخ</span>
+              <button onclick="copy('asmaaCopy')">نسخ</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="advert">
+          <div class="social">
+            <h3>تابع أذكاري</h3>
+            <ul>
+              <li>
+                <a href="#" class="face-link"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+              </li>
+              <li>
+                <a href="#" class="twitter-link"><i class="fab fa-twitter"></i> تويتر</a>
+              </li>
+              <li>
+                <a href="#" class="instagram-link"><i class="fab fa-instagram"></i> انستجرام</a>
+              </li>
+              <li>
+                <a href="#" class="pinterest-link"><i class="fab fa-pinterest-p"></i> بينترست</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <h2>أذكاري &copy; ٢٠٢٢</h2>
+      <p>إسلام صلاح</p>
+    </footer>
+
+    <!-- Create Popup Msbaha -->
+    <div class="popup-msbaha">
+      <div class="modal">
+        <div class="count-msbaha">
+          <div>
+            <p>عدد الحبات</p>
+            <h3>33</h3>
+          </div>
+          <div class="current-rotate">
+            <p>دوره</p>
+            <h3>1</h3>
+          </div>
+          <div class="current-count">
+            <p>العدد الحالي</p>
+            <h3>0</h3>
+          </div>
+        </div>
+        <div class="click-msbaha"></div>
+        <div class="restClose">
+          <button class="close-msbaha">إغلاق</button>
+          <button class="reset"><i class="fas fa-redo"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/*************************** Quran Page ***************************/
+.quran-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: scroll;
+}
+
+.quran-content .surah {
+  width: 165px;
+  max-height: 180px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.quran-content .surah:hover {
+  transform: scale(0.95);
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.quran-content .surah h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/************ Create Surah Popup ************/
+.surah-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 130;
+  overflow-y: scroll;
+  transition: 0.5s;
+}
+
+.surah-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.surah-popup .close {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.surah-popup .ayat-container {
+  margin: 20px 50px;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.surah-popup .ayat-container p {
+  width: 90%;
+  font-size: 19px;
+  line-height: 1.8;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
